@@ -38,13 +38,21 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'database_cleaner'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
+  gem 'factory_bot_rails', '~> 6.2'
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
+  gem 'rubocop-rails', '~> 2.17', '>= 2.17.4'
+  gem 'rubocop-rspec', '~> 2.18', '>= 2.18.1'
+  gem 'rubocop-performance', '~> 1.11'
+  gem 'rubocop-rake', '~> 0.6'
+  gem 'shoulda-matchers'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'rubocop-rails', '~> 2.17', '>= 2.17.4'
-  gem 'rubocop-rspec', '~> 2.18', '>= 2.18.1'
+  gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
+  gem 'pry-rails', '~> 0.3.9'
 end
