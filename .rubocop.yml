@@ -1,0 +1,26 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0.0
+
+
+Style/Documentation:
+  Enabled: no
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/FilePath:
+  Enabled: off
