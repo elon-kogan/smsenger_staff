@@ -16,6 +16,8 @@ RSpec.describe '/messages', type: :request do
   end
 
   describe 'GET /index' do
+    include_context 'when sms is sent'
+
     before { create_list(:message, 3) }
 
     it 'renders a successful response' do
@@ -26,6 +28,8 @@ RSpec.describe '/messages', type: :request do
   end
 
   describe 'POST /create' do
+    include_context 'when sms is sent'
+
     context 'with valid parameters' do
       it 'creates a new Message' do
         expect do

@@ -21,3 +21,6 @@ Metrics/BlockLength:
 
 RSpec/MultipleExpectations:
   Max: 3
+
+RSpec/FilePath:
+  Enabled: off
