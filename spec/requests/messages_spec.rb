@@ -46,6 +46,16 @@ RSpec.describe '/messages', type: :request do
       end
     end
 
+    context 'with sending errors' do
+      let(:sender_response) { false }
+
+      it 'renders a JSON response with error' do
+        post messages_url,
+             params: { message: valid_attributes }, headers: valid_headers, as: :json
+        expect(json_response).to match(['Failed to send message'])
+      end
+    end
+
     context 'with invalid parameters' do
       it 'does not create a new Message' do
         expect do
@@ -58,7 +68,7 @@ RSpec.describe '/messages', type: :request do
              params: { message: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to be_unprocessable
         expect(response.content_type).to match(a_string_including('application/json'))
-        expect(json_response).to match(phone: ["can't be blank"], text: ["can't be blank"])
+        expect(json_response).to match(["Phone can't be blank", "Text can't be blank"])
       end
     end
   end

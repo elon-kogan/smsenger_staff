@@ -11,5 +11,6 @@ class Message < ApplicationRecord
 
   def send_message
     self.sent = SmsSender.new(phone: phone, text: text).call
+    errors.add(:base, 'Failed to send message') unless sent?
   end
 end
