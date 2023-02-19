@@ -33,6 +33,3 @@ test:
 
 production:
   <<: *default
-  database: smsenger_staff_production
-  username: smsenger_staff
-  password: <%= ENV["SMSENGER_STAFF_DATABASE_PASSWORD"] %>
