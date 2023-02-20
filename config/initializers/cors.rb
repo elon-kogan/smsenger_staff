@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ENV.fetch('SMSENGER_STAFF_FRONTEND_URL', '')
+    origins(*ENV.fetch('SMSENGER_STAFF_FRONTEND_URL', '').split(/, ?/))
 
     resource '*',
              headers: :any,
